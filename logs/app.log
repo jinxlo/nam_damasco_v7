@@ -1,0 +1,728 @@
+2025-06-27 09:48:56 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 09:48:56 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 09:48:56 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 09:48:56 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 09:56:13 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 09:56:13 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 09:56:13 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 09:56:13 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:00:29 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:00:29 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:00:29 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:00:29 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 10:00:29 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:00:29 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:00:29 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:00:29 [INFO] namwoo_app: --- Creating Flask Application Instance (for Gunicorn/Web or Celery context) ---
+2025-06-27 10:00:29 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 10:00:29 [INFO] namwoo_app: Flask Environment: production
+2025-06-27 10:00:29 [INFO] namwoo_app: Debug Mode: False
+2025-06-27 10:00:29 [ERROR] namwoo_app.utils.db_utils: SQLALCHEMY_DATABASE_URI not configured. Database features will fail.
+2025-06-27 10:00:29 [INFO] namwoo_app: Dependent services (like OpenAI client) will be initialized as needed or at module level within their respective service files.
+2025-06-27 10:02:18 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:02:18 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:02:18 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:02:18 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 10:02:18 [INFO] namwoo_app: --- Creating Flask Application Instance (for Gunicorn/Web or Celery context) ---
+2025-06-27 10:02:18 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 10:02:18 [INFO] namwoo_app: Flask Environment: production
+2025-06-27 10:02:18 [INFO] namwoo_app: Debug Mode: False
+2025-06-27 10:02:18 [ERROR] namwoo_app.utils.db_utils: SQLALCHEMY_DATABASE_URI not configured. Database features will fail.
+2025-06-27 10:02:18 [INFO] namwoo_app: Dependent services (like OpenAI client) will be initialized as needed or at module level within their respective service files.
+2025-06-27 10:02:18 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 10:02:18 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 10:02:18 [INFO] namwoo_app: Initializing background scheduler (APScheduler)...
+2025-06-27 10:02:47 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:02:47 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:02:47 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:02:47 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 10:02:47 [INFO] namwoo_app: --- Creating Flask Application Instance (for Gunicorn/Web or Celery context) ---
+2025-06-27 10:02:47 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 10:02:47 [INFO] namwoo_app: Flask Environment: production
+2025-06-27 10:02:47 [INFO] namwoo_app: Debug Mode: False
+2025-06-27 10:02:47 [ERROR] namwoo_app.utils.db_utils: SQLALCHEMY_DATABASE_URI not configured. Database features will fail.
+2025-06-27 10:02:47 [INFO] namwoo_app: Dependent services (like OpenAI client) will be initialized as needed or at module level within their respective service files.
+2025-06-27 10:02:47 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 10:02:47 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 10:02:47 [INFO] namwoo_app: Initializing background scheduler (APScheduler)...
+2025-06-27 10:09:58 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:09:58 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:09:58 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:09:58 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 10:09:58 [INFO] namwoo_app: --- Creating Flask Application Instance (for Gunicorn/Web or Celery context) ---
+2025-06-27 10:09:58 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 10:09:58 [INFO] namwoo_app: Flask Environment: production
+2025-06-27 10:09:58 [INFO] namwoo_app: Debug Mode: False
+2025-06-27 10:09:58 [ERROR] namwoo_app.utils.db_utils: SQLALCHEMY_DATABASE_URI not configured. Database features will fail.
+2025-06-27 10:09:58 [INFO] namwoo_app: Dependent services (like OpenAI client) will be initialized as needed or at module level within their respective service files.
+2025-06-27 10:09:58 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 10:09:58 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 10:09:58 [INFO] namwoo_app: Initializing background scheduler (APScheduler)...
+2025-06-27 10:12:00 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 10:12:00 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 10:12:00 [ERROR] namwoo_app.services.openai_service: OpenAI API key not configured during initial load. Chat functionality will fail.
+2025-06-27 10:12:00 [ERROR] namwoo_app.services.google_service: GOOGLE_API_KEY not configured. Gemini service (via OpenAI lib) disabled.
+2025-06-27 10:12:00 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 10:12:00 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 10:12:00 [INFO] namwoo_app: Flask Environment: production
+2025-06-27 10:12:00 [INFO] namwoo_app: Debug Mode: False
+2025-06-27 10:12:00 [ERROR] namwoo_app.utils.db_utils: SQLALCHEMY_DATABASE_URI not configured. Database features will fail.
+2025-06-27 10:12:00 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 10:12:00 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 10:12:00 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 10:12:00 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 10:12:00 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 11:11:46 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 11:11:46 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 11:11:46 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 11:11:47 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 11:11:47 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 11:11:47 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 11:11:47 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 11:11:47 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 11:11:47 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 11:11:47 [INFO] namwoo_app.utils.db_utils: Attempting to connect to database: localhost:5432/namwoo
+2025-06-27 11:11:52 [ERROR] namwoo_app.utils.db_utils: Database connection failed (OperationalError): (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\namwoo_app\utils\db_utils.py", line 52, in init_db
+    with _engine.connect() as connection:
+         ^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-27 11:11:52 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 11:11:52 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 11:11:52 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 11:11:52 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 11:11:52 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 11:23:25 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 11:23:25 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 11:23:25 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 11:23:25 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 11:23:26 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 11:23:26 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 11:23:26 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 11:23:26 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 11:23:26 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 11:23:26 [INFO] namwoo_app.utils.db_utils: Attempting to connect to database: localhost:5432/namwoo
+2025-06-27 11:23:30 [ERROR] namwoo_app.utils.db_utils: Database connection failed (OperationalError): (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\namwoo_app\utils\db_utils.py", line 52, in init_db
+    with _engine.connect() as connection:
+         ^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-27 11:23:30 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 11:23:30 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 11:23:30 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 11:23:30 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 11:23:30 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 11:53:35 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 11:53:35 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 11:53:35 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 11:53:35 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 11:53:36 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 11:53:36 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 11:53:36 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 11:53:36 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 11:53:36 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 11:53:36 [INFO] namwoo_app.utils.db_utils: Attempting to connect to database: localhost:5432/namwoo
+2025-06-27 11:53:40 [ERROR] namwoo_app.utils.db_utils: Database connection failed (OperationalError): (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\namwoo_app\utils\db_utils.py", line 52, in init_db
+    with _engine.connect() as connection:
+         ^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-27 11:53:40 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 11:53:40 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 11:53:40 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 11:53:40 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 11:53:40 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 11:58:07 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 11:58:07 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 11:58:07 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 11:58:07 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 11:58:07 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 11:58:08 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 11:58:08 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 11:58:08 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 11:58:08 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 11:58:08 [INFO] namwoo_app.utils.db_utils: Attempting to connect to database: localhost:5432/namwoo
+2025-06-27 11:58:12 [ERROR] namwoo_app.utils.db_utils: Database connection failed (OperationalError): (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\namwoo_app\utils\db_utils.py", line 52, in init_db
+    with _engine.connect() as connection:
+         ^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisj\OneDrive\Desktop\ec2-user\venv\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-27 11:58:12 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 11:58:12 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 11:58:12 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 11:58:12 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 11:58:12 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:09:30 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:09:30 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:09:30 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:09:31 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:09:31 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:09:31 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:09:31 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:09:31 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:09:31 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:09:31 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:09:32 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:09:32 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:09:32 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:09:32 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:09:32 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:09:32 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:24:17 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:24:17 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:24:17 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:24:18 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:24:18 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:24:18 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:24:18 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:24:18 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:24:18 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:24:18 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:24:18 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:24:18 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:24:18 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:24:18 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:24:18 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:24:18 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:29:14 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:29:14 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:29:14 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:29:15 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:29:15 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:29:15 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:29:15 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:29:15 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:29:15 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:29:15 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:29:15 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:29:15 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:29:15 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:29:15 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:29:15 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:29:15 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:35:32 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:35:32 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:35:32 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:35:32 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:35:33 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:35:33 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:35:33 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:35:33 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:35:33 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:35:33 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:35:33 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:35:33 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:35:33 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:35:33 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:35:33 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:35:33 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:38:55 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:38:55 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:38:55 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:38:55 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:38:55 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:38:55 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:38:55 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:38:55 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:38:55 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:38:55 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:38:56 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:38:56 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:38:56 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:38:56 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:38:56 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:38:56 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:38:56 [INFO] test_setup_json_file_logger: json hello
+2025-06-27 12:48:08 [INFO] namwoo_app.utils.conversation_location: Initializing city-to-warehouse map from tiendas_data.json...
+2025-06-27 12:48:08 [INFO] namwoo_app.utils.conversation_location: City-to-warehouse map initialized. Found mappings for 16 cities.
+2025-06-27 12:48:08 [DEBUG] namwoo_app.utils.conversation_location: Generated map: {'barquisimeto': ['Almacen Principal BARQUISIMETO', 'ALMACEN PRINCIPAL BARQUISIMETO II'], 'cagua': ['Almacen Principal CAGUA', 'Almacen Principal ARAGUA (Inactivo)'], 'caracas': ['Almacen Principal BARBUR', 'Almacen Principal CCCT', 'ALMACEN PRINCIPAL EL PARAISO', 'Almacen Principal LA CALIFORNIA', 'Almacen Principal LA CANDELARIA', 'Almacen Principal LA TRINIDAD', 'Almacen Principal LAS MERCEDES', 'Almacen Principal MUEBLERIA', 'Almacen Principal MUEBLES ANTUAN', 'ALMACEN PRINCIPAL NUEVA GRANADA', 'Almacen Principal SABANA GRANDE', 'Almacen Principal SAN MARTIN 1', 'Almacen Principal SAN MARTIN 2', 'Almacen principal san martin 4', 'ALMACEN PRINCIPAL TORRE CORPORATIVA'], 'guatire': ['Almacen Principal GUATIRE 2022'], 'la guaira': ['Almacen Principal GUAIRA TERMINAL'], 'lechería': ['Almacen Principal LECHERIA'], 'los teques': ['Almacen Principal LOS TEQUES'], 'maracaibo': ['Almacen Principal MARACAIBO'], 'maracay': ['Almacen Principal ARAGUA'], 'maturín': ['ALMACEN PRINCIPAL MATURIN'], 'puerto la cruz': ['ALMACEN PRINCIPAL PUERTO LA CRUZ'], 'puerto ordaz': ['Almacen Principal PUERTO ORDAZ'], 'san cristóbal': ['Almacen Principal TACHIRA'], 'san felipe': ['ALMACEN PRINCIPAL SAN FELIPE'], 'trujillo': ['ALMACEN PRINCIPAL TRUJILLO'], 'valencia': ['Almacen Principal VALENCIA', 'Almacén Principal Valencia 2']}
+2025-06-27 12:48:08 [INFO] namwoo_app.services.openai_service: OpenAI client initialized for Chat Completions service with timeout: 60.0s.
+2025-06-27 12:48:09 [INFO] namwoo_app.services.google_service: OpenAI-lib client initialised for Google Gemini at https://generativelanguage.googleapis.com/v1beta/openai/ with timeout 60.0.
+2025-06-27 12:48:09 [INFO] namwoo_app: --- Creating Flask Application Instance ---
+2025-06-27 12:48:09 [INFO] namwoo_app: Redis client initialized using URL: redis://localhost:6379/0
+2025-06-27 12:48:09 [INFO] namwoo_app: Flask Environment: development
+2025-06-27 12:48:09 [INFO] namwoo_app: Debug Mode: True
+2025-06-27 12:48:09 [INFO] namwoo_app.utils.db_utils: Initializing database engine for: localhost:5432/namwoo
+2025-06-27 12:48:09 [INFO] namwoo_app.utils.db_utils: SQLAlchemy engine and session factory have been configured successfully.
+2025-06-27 12:48:09 [INFO] namwoo_app: Dependent services will be initialized as needed within their respective service files.
+2025-06-27 12:48:09 [INFO] namwoo_app: Main API Blueprint 'api' registered under url_prefix: /api
+2025-06-27 12:48:09 [INFO] namwoo_app: No specific Celery configurations found in Flask app.config to update Celery instance.
+2025-06-27 12:48:09 [INFO] namwoo_app: Custom CLI commands registered.
+2025-06-27 12:48:09 [INFO] namwoo_app: --- Namwoo Application Initialization Complete ---
+2025-06-27 12:48:11 [DEBUG] namwoo_app.api.routes: Full webhook body: {'conversation_id': 'conv-test-address-1', 'conversation_source': 'whatsapp', 'data': {'conversation_id': 'conv-test-address-1', 'conversation_source': 'whatsapp', 'conversation_user_id': 'user-xyz', 'message': 'dime la direccion del ccct', 'sender_user_id': 'user-xyz', 'triggering_message_id': 'msg-12345', 'user_id': 'user-xyz'}, 'message': 'dime la direccion del ccct', 'sender_user_id': 'user-xyz', 'user': {'id': 'user-xyz'}}
+2025-06-27 12:48:11 [INFO] namwoo_app.api.routes: Received SB Webhook Payload: {
+  "conversation_id": "conv-test-address-1",
+  "conversation_source": "whatsapp",
+  "data": {
+    "conversation_id": "conv-test-address-1",
+    "conversation_source": "whatsapp",
+    "conversation_user_id": "user-xyz",
+    "message": "dime la direccion del ccct",
+    "sender_user_id": "user-xyz",
+    "triggering_message_id": "msg-12345",
+    "user_id": "user-xyz"
+  },
+  "message": "dime la direccion del ccct",
+  "sender_user_id": "user-xyz",
+  "user": {
+    "id": "user-xyz"
+  }
+}
+2025-06-27 12:48:11 [DEBUG] namwoo_app.api.routes: Ignoring webhook function type: None
