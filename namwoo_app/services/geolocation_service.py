@@ -154,7 +154,8 @@ def find_nearby_stores(latitude: float, longitude: float, limit: int = 3) -> dic
         A dictionary containing a list of nearby stores, sorted by distance.
     """
     if not STORE_LOCATIONS:
-        return {"nearby_stores": [], "error": "Store locations are not loaded."}
+        logger.error("Could not find nearby stores because STORE_LOCATIONS is empty. Check file path and JSON content.")
+        return {"nearby_stores": [], "error": "Store locations are not loaded on the server."}
 
     user_location = (latitude, longitude)
     

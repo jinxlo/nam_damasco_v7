@@ -252,64 +252,94 @@ def get_live_product_details_by_sku(item_code_query: str) -> Optional[List[Dict[
             logger.exception("DB error fetching by sku")
             return None
 
-def get_branch_address(branch_name: str, city: str) -> Optional[Dict[str, str]]:
-    if not branch_name or not city: return None
+def get_branch_address(branch_name: str, city: Optional[str] = None) -> Optional[Dict[str, str]]:
+    """
+    Fetches the address of a specific branch. The city parameter is optional and used for logging context.
+    """
+    if not branch_name:
+        return {"status": "error", "message": "Branch name cannot be empty."}
+    
     with db_utils.get_db_session() as session:
-        if not session: return None
+        if not session:
+            return {"status": "error", "message": "Database session not available."}
         try:
-            # --- START OF MODIFICATION ---
-            # Using ILIKE for more flexible name matching and adding city filter.
-            from ..utils.conversation_location import detect_city_from_text
-            canonical_city = detect_city_from_text(city)
-
-            query = session.query(Product).filter(
-                Product.branch_name.ilike(f"%{branch_name}%"),
-                Product.store_address.isnot(None)
+            # Query for a product that is located at the specified branch and has an address.
+            # We use ILIKE for case-insensitive matching and only need one result.
+            result = (
+                session.query(Product.branch_name, Product.store_address)
+                .filter(
+                    Product.branch_name.ilike(f"%{branch_name.strip()}%"),
+                    Product.store_address.isnot(None),
+                    Product.store_address != ""
+                )
+                .first()
             )
             
-            # If we have a canonical city name, we add it to the filter to be more precise.
-            if canonical_city:
-                # This is a bit complex: we need to find all warehouses for that canonical city
-                # and then filter the products that belong to one of those warehouses.
-                from ..utils.conversation_location import get_warehouses_for_city # Assumes this function exists
-                city_warehouses = get_warehouses_for_city(canonical_city)
-                if city_warehouses:
-                    query = query.filter(Product.warehouse_name.in_(city_warehouses))
+            if result:
+                # result is a tuple: (branch_name_from_db, store_address_from_db)
+                db_branch_name, db_store_address = result
+                logger.info(f"Address found for branch '{branch_name}': {db_store_address}")
+                return {
+                    "status": "success",
+                    "branch_name": db_branch_name,
+                    "branch_address": db_store_address
+                }
+            
+            logger.warning(f"Address not found for branch '{branch_name}' (city hint: '{city}').")
+            return {"status": "not_found", "message": f"No se encontró la dirección para la sucursal '{branch_name}'."}
 
-            product = query.first()
-            # --- END OF MODIFICATION ---
-            
-            if product:
-                return {"status": "success", "branch_name": product.branch_name, "branch_address": product.store_address}
-            
-            logger.warning(f"Address not found for branch '{branch_name}' in city '{city}'.")
-            return {"status": "not_found"}
         except Exception as e:
-            logger.exception(f"Error fetching branch address for '{branch_name}': {e}")
-            return None
+            logger.exception(f"DB error fetching branch address for '{branch_name}': {e}")
+            return {"status": "error", "message": f"Error interno buscando la dirección para '{branch_name}'."}
 
 def query_accessories(main_product_item_code: str, city_warehouses: Optional[List[str]], limit: int = 3) -> Optional[List[str]]:
-    if not main_product_item_code: return []
+    """
+    Finds relevant accessories for a given main product.
+
+    The logic is to find accessories that are:
+    1. From the same brand as the main product (highest priority).
+    2. In the same general category (e.g., 'CELULAR').
+    3. Filtered by the user's city if provided.
+    """
+    if not main_product_item_code:
+        return []
+        
     with db_utils.get_db_session() as session:
-        if not session: return None
+        if not session:
+            return None
+        
         try:
             main_product = session.query(Product).filter(Product.item_code == main_product_item_code).first()
-            if not main_product: return []
+            if not main_product or not main_product.brand:
+                logger.warning(f"Could not find main product or its brand for item_code {main_product_item_code}")
+                return []
             
-            q = session.query(Product).filter(
+            logger.info(f"Querying accessories for '{main_product.item_name}' (Brand: {main_product.brand})")
+
+            # Base query for accessories
+            query = session.query(Product).filter(
                 Product.sub_category == "ACCESORIO",
                 Product.stock > 0,
                 Product.item_group_name == "DAMASCO TECNO",
-                Product.category == main_product.category
+                Product.brand.ilike(f"%{main_product.brand}%") # Stricter filter for the same brand
             )
-            if city_warehouses: q = q.filter(Product.warehouse_name.in_(city_warehouses))
+
+            # If a city context exists, apply it.
+            if city_warehouses:
+                query = query.filter(Product.warehouse_name.in_(city_warehouses))
             
-            brand_priority = case((Product.brand == main_product.brand, 1), else_=2)
-            accessories = q.order_by(brand_priority, Product.stock.desc()).limit(limit).all()
+            # Order by stock and get the top results
+            accessories = query.order_by(Product.stock.desc()).limit(limit).all()
             
+            if not accessories:
+                logger.info(f"No matching brand accessories found for {main_product.brand}. No fallback implemented.")
+                return []
+
+            # Format the results
             return [f"{_extract_base_name_and_color(acc.item_name)[0]} (${acc.price:.2f})" for acc in accessories]
+
         except Exception as e:
-            logger.exception(f"Error in query_accessories: {e}")
+            logger.exception(f"Error in query_accessories for {main_product_item_code}: {e}")
             return None
 
 # ===========================================================================

@@ -9,7 +9,7 @@ from sqlalchemy.exc import OperationalError as SQLAlchemyOperationalError
 from celery.exceptions import Ignore, MaxRetriesExceededError, OperationalError as CeleryOperationalError
 
 from .celery_app import celery_app, FlaskTask
-from .services import product_service, openai_service, llm_processing_service
+from .services import ai_service, product_service, llm_processing_service
 from .utils import db_utils, product_utils 
 from .models.product import Product      
 from .config import Config
@@ -175,7 +175,7 @@ def process_products_batch_task(self, products_batch_snake_case: List[Dict[str, 
             # --- END MODIFIED CHECK ---
             
             if generate_new_embedding:
-                embedding_to_use = openai_service.generate_product_embedding(text_to_embed)
+                embedding_to_use = ai_service.generate_product_embedding(text_to_embed)
                 if embedding_to_use is None: 
                     logger.error(f"Task {task_id}: Failed to generate new embedding for {lookup_id}. Skipping item.")
                     continue 

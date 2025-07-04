@@ -5,7 +5,7 @@ from typing import Optional
 from ..config import Config
 # Import the specific summarization functions from your existing LLM service files
 # We'll define these specific functions in the next steps.
-from . import openai_service
+from . import ai_service
 from . import google_service
 from ..utils.text_utils import strip_html_to_text # For pre-stripping HTML
 
@@ -35,7 +35,7 @@ def generate_llm_product_summary(
     try:
         if provider == 'openai':
             # We'll create/ensure this function exists in openai_service.py
-            summary = openai_service.get_openai_product_summary(plain_text_description, item_name)
+            summary = ai_service.get_openai_product_summary(plain_text_description, item_name)
         elif provider == 'google':
             # We'll create/ensure this function exists in google_service.py
             summary = google_service.get_google_product_summary(plain_text_description, item_name)

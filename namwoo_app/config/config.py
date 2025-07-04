@@ -57,18 +57,18 @@ class Config:
     SYNC_LOG_FILE = os.path.join(LOG_DIR, 'sync.log')
     LOG_JSON_FILE = os.path.join(LOG_DIR, 'app.json')
 
-    # --- LLM Configuration ---
-    LLM_PROVIDER = os.environ.get('LLM_PROVIDER', 'openai').lower()
-    if LLM_PROVIDER not in ['openai', 'google']:
-        print(f"WARNING [Config]: Invalid LLM_PROVIDER '{LLM_PROVIDER}'. Defaulting to 'openai'.")
-        LLM_PROVIDER = 'openai'
-
+    # --- AI Configuration (Standardized) ---
+    AI_PROVIDER = os.environ.get('AI_PROVIDER', 'openai_chat').lower()
+    
+    # OpenAI Specific
     OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+    OPENAI_ASSISTANT_ID = os.environ.get('OPENAI_ASSISTANT_ID')
     OPENAI_EMBEDDING_MODEL = os.environ.get('OPENAI_EMBEDDING_MODEL', 'text-embedding-3-small')
     OPENAI_CHAT_MODEL = os.environ.get('OPENAI_CHAT_MODEL', 'gpt-4o-mini')
     OPENAI_MAX_TOKENS = int(os.environ.get('OPENAI_MAX_TOKENS', 1024))
     EMBEDDING_DIMENSION = int(os.environ.get('EMBEDDING_DIMENSION', 1536))
 
+    # Google Specific
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
     GOOGLE_GEMINI_MODEL = os.environ.get('GOOGLE_GEMINI_MODEL', 'gemini-1.5-flash-latest')
     GOOGLE_MAX_TOKENS = int(os.environ.get('GOOGLE_MAX_TOKENS', 2048))
@@ -148,7 +148,7 @@ class Config:
 # --- Config Sanity Check ---
 if __name__ != "__main__":
     print(f"--- Config Initialized ---")
-    print(f"ENV: {Config.FLASK_ENV}, DEBUG={Config.DEBUG}, LLM Provider: {Config.LLM_PROVIDER}")
+    print(f"ENV: {Config.FLASK_ENV}, DEBUG={Config.DEBUG}, AI Provider: {Config.AI_PROVIDER}")
     print(f"DB URI: {'SET' if Config.SQLALCHEMY_DATABASE_URI else 'MISSING'}")
     print(f"Celery broker_url: {Config.broker_url}")
     print(f"Celery result_backend: {Config.result_backend}")
