@@ -699,9 +699,17 @@ def delete_message(message_id: str) -> bool:
 
 def route_conversation_to_sales(conversation_id: str) -> None:
     """Assign conversation to the Sales department and disable the bot."""
-    sales_department_id = Config.SALES_DEPARTMENT_ID
+    sales_department_id = Config.SUPPORT_BOARD_SALES_DEPARTMENT_ID
+    if not sales_department_id:
+        logger.error(f"Cannot route conv {conversation_id} to Sales: SUPPORT_BOARD_SALES_DEPARTMENT_ID is not configured.")
+        return
 
-    assign_conversation_to_department(conversation_id, sales_department_id)
+    logger.info(f"Routing conversation {conversation_id} to Sales department (ID: {sales_department_id}) and enabling human takeover.")
+    try:
+        assign_conversation_to_department(conversation_id, int(sales_department_id))
+    except (ValueError, TypeError):
+        logger.error(f"Cannot route to Sales: SUPPORT_BOARD_SALES_DEPARTMENT_ID ('{sales_department_id}') is not a valid integer.")
+        return
 
     _call_sb_api(
         {
@@ -709,3 +717,26 @@ def route_conversation_to_sales(conversation_id: str) -> None:
             "conversation_id": conversation_id,
         }
     )
+
+# --- START OF FIX: ADD MISSING FUNCTION & IMPROVE BOTH ---
+def route_conversation_to_support(conversation_id: str) -> None:
+    """Assign conversation to the general Support department and disable the bot."""
+    support_department_id = Config.SUPPORT_BOARD_SUPPORT_DEPARTMENT_ID
+    if not support_department_id:
+        logger.error(f"Cannot route conv {conversation_id} to Support: SUPPORT_BOARD_SUPPORT_DEPARTMENT_ID is not configured.")
+        return
+        
+    logger.info(f"Routing conversation {conversation_id} to Support department (ID: {support_department_id}) and enabling human takeover.")
+    try:
+        assign_conversation_to_department(conversation_id, int(support_department_id))
+    except (ValueError, TypeError):
+        logger.error(f"Cannot route to Support: SUPPORT_BOARD_SUPPORT_DEPARTMENT_ID ('{support_department_id}') is not a valid integer.")
+        return
+
+    _call_sb_api(
+        {
+            "function": "sb-human-takeover",
+            "conversation_id": conversation_id,
+        }
+    )
+# --- END OF FIX ---

@@ -4,6 +4,8 @@ import logging
 import json
 import time
 from typing import List, Dict, Optional, Any
+
+import redis
 from openai import OpenAI
 from openai.types.beta.threads import Run
 
@@ -19,9 +21,6 @@ from ...utils import message_parser
 
 logger = logging.getLogger(__name__)
 
-# In the Assistants API, the tool schema is defined ONCE on the Assistant object itself.
-# It is not needed here, but we need the tool execution logic.
-
 class OpenAIAssistantProvider:
     def __init__(self, api_key: str, assistant_id: str):
         if not api_key or not assistant_id:
@@ -29,16 +28,17 @@ class OpenAIAssistantProvider:
         
         self.client = OpenAI(api_key=api_key)
         self.assistant_id = assistant_id
+
         # Polling configuration
         self.polling_interval_seconds = 1
         self.run_timeout_seconds = 120
+
+        # Application-level lock (requires Config.REDIS_URL)
+        self.redis = redis.Redis.from_url(getattr(Config, "REDIS_URL", "redis://localhost:6379/0"))
+
         logger.info(f"OpenAIAssistantProvider initialized for Assistant ID '{self.assistant_id}'.")
 
     def _get_or_create_thread_id(self, sb_conversation_id: str) -> str:
-        """
-        Retrieves a thread_id for a given conversation_id.
-        If none exists, creates a new thread and stores the mapping.
-        """
         thread_id = thread_mapping_service.get_thread_id(sb_conversation_id)
         if not thread_id:
             logger.info(f"No existing thread for Conv {sb_conversation_id}. Creating a new one.")
@@ -47,11 +47,26 @@ class OpenAIAssistantProvider:
             thread_mapping_service.store_thread_id(sb_conversation_id, thread_id)
         return thread_id
 
+    def _wait_for_thread_free(self, thread_id: str):
+        """
+        Polls until there are no active runs on the thread.
+        Cancels the run and raises if timeout is exceeded.
+        """
+        start = time.time()
+        resp = self.client.beta.threads.runs.list(thread_id=thread_id, limit=1)
+        if not resp.data:
+            return  # no runs yet
+
+        run = resp.data[0]
+        while run.status in ("queued", "in_progress", "requires_action"):
+            if time.time() - start > self.run_timeout_seconds:
+                logger.warning(f"Run {run.id} hung; cancelling after {self.run_timeout_seconds}s")
+                self.client.beta.threads.runs.cancel(thread_id=thread_id, run_id=run.id)
+                raise RuntimeError(f"Run {run.id} did not finish in time.")
+            time.sleep(self.polling_interval_seconds)
+            run = self.client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+
     def _handle_geolocation_injection(self, thread_id: str, new_user_message: str) -> bool:
-        """
-        Handles the special case where a user sends a GPS link.
-        This logic adds the location details as a new user message in the thread.
-        """
         location_data = message_parser.extract_location_from_text(new_user_message)
         if not location_data:
             return False
@@ -61,35 +76,26 @@ class OpenAIAssistantProvider:
             latitude=location_data['latitude'],
             longitude=location_data['longitude']
         )
-        
         if geo_details and not geo_details.get("error"):
-            # First, add the user's original message (the URL) to the thread.
+            # original URL
             self.client.beta.threads.messages.create(
-                thread_id=thread_id, 
-                role="user", 
-                content=new_user_message
+                thread_id=thread_id, role="user", content=new_user_message
             )
-            
-            # Next, create a formatted string with the context for the AI.
-            nearby_stores_text = "\n".join([
-                f"- {store['branch_name']} (a {store['distance_km']} km)" 
-                for store in geo_details.get("nearby_stores", [])
-            ])
+            # formatted context block
+            nearby = "\n".join(
+                f"- {s['branch_name']} (a {s['distance_km']} km)"
+                for s in geo_details.get("nearby_stores", [])
+            )
             context_message = (
                 "[CONTEXTO DE UBICACIÓN PROPORCIONADO POR EL USUARIO]\n"
                 f"Dirección Detectada: {geo_details.get('formatted_address', 'No disponible')}\n"
-                f"Tiendas Cercanas:\n{nearby_stores_text}\n"
+                f"Tiendas Cercanas:\n{nearby}\n"
                 "[FIN DEL CONTEXTO DE UBICACIÓN]"
             )
-            
-            # Add this new context block as another user message.
-            # The system prompt will instruct the AI on how to interpret this.
             self.client.beta.threads.messages.create(
-                thread_id=thread_id,
-                role="user",
-                content=context_message
+                thread_id=thread_id, role="user", content=context_message
             )
-            logger.info(f"Successfully injected location context into thread {thread_id}.")
+            logger.info(f"Injected location context into thread {thread_id}.")
             return True
         return False
 
@@ -100,86 +106,101 @@ class OpenAIAssistantProvider:
         conversation_data: Dict[str, Any],
         reservation_context: Dict[str, Any]
     ) -> Optional[str]:
-        try:
-            thread_id = self._get_or_create_thread_id(sb_conversation_id)
-            
-            # If the user sent a GPS link, handle it by injecting context and then start the run.
-            # Otherwise, just add the new message.
-            if new_user_message and self._handle_geolocation_injection(thread_id, new_user_message):
-                pass # Geolocation was handled, message is already in thread.
-            elif new_user_message:
-                self.client.beta.threads.messages.create(
-                    thread_id=thread_id,
-                    role="user",
-                    content=new_user_message
-                )
+        lock_key = f"lock:conv:{sb_conversation_id}"
+        # Acquire Redis lock to prevent multi-worker races
+        with self.redis.lock(lock_key, timeout=self.run_timeout_seconds + 10, blocking_timeout=5):
+            try:
+                thread_id = self._get_or_create_thread_id(sb_conversation_id)
 
-            # --- Create the Run with dynamic instructions ---
-            # The main instructions are on the Assistant object itself.
-            # This 'instructions' parameter overrides/appends to it for this specific run.
-            additional_instructions = Config.SYSTEM_PROMPT
-            if reservation_context:
-                context_header = "\n\n--- CONTEXTO DE RESERVA ---\n"
-                context_footer = "\n---------------------------\n"
-                context_str = "Estado actual de la reserva del cliente (no preguntar de nuevo):\n" + "\n".join([f"- {key}: {value}" for key, value in reservation_context.items()])
-                additional_instructions += context_header + context_str + context_footer
-            
-            run = self.client.beta.threads.runs.create(
-                thread_id=thread_id,
-                assistant_id=self.assistant_id,
-                instructions=additional_instructions
-            )
-            logger.info(f"Created Run {run.id} for Thread {thread_id}.")
+                # 1) wait for any prior run to finish
+                self._wait_for_thread_free(thread_id)
 
-            # --- Poll for Run completion ---
-            start_time = time.time()
-            while time.time() - start_time < self.run_timeout_seconds:
-                run = self.client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
-
-                if run.status == 'completed':
-                    logger.info(f"Run {run.id} completed.")
-                    messages = self.client.beta.threads.messages.list(thread_id=thread_id, limit=1)
-                    # The latest message is at index 0
-                    return messages.data[0].content[0].text.value
-
-                if run.status == 'requires_action':
-                    logger.info(f"Run {run.id} requires tool action.")
-                    tool_outputs = self._execute_tool_calls(run.required_action.submit_tool_outputs.tool_calls, sb_conversation_id)
-                    self.client.beta.threads.runs.submit_tool_outputs(
+                # 2) inject geolocation or add the new user message
+                if new_user_message and self._handle_geolocation_injection(thread_id, new_user_message):
+                    pass
+                elif new_user_message:
+                    self.client.beta.threads.messages.create(
                         thread_id=thread_id,
-                        run_id=run.id,
-                        tool_outputs=tool_outputs
+                        role="user",
+                        content=new_user_message
                     )
-                    logger.info(f"Submitted {len(tool_outputs)} tool outputs for Run {run.id}.")
 
-                if run.status in ['failed', 'cancelled', 'expired']:
-                    logger.error(f"Run {run.id} terminated with status: {run.status}. Error: {run.last_error}")
-                    return f"Lo siento, la operación ha fallado con el estado: {run.status}. Por favor, intente de nuevo."
+                # 3) build instructions
+                instructions = Config.SYSTEM_PROMPT
+                if reservation_context:
+                    header = "\n\n--- CONTEXTO DE RESERVA ---\n"
+                    footer = "\n---------------------------\n"
+                    ctx = "\n".join(f"- {k}: {v}" for k,v in reservation_context.items())
+                    instructions += f"{header}Estado actual de la reserva:\n{ctx}{footer}"
 
-                time.sleep(self.polling_interval_seconds)
-            
-            logger.error(f"Run {run.id} timed out after {self.run_timeout_seconds} seconds.")
-            return "Lo siento, la operación ha tardado demasiado en completarse."
+                # 4) create a new run
+                run = self.client.beta.threads.runs.create(
+                    thread_id=thread_id,
+                    assistant_id=self.assistant_id,
+                    instructions=instructions
+                )
+                logger.info(f"Created Run {run.id} for Thread {thread_id}.")
 
-        except Exception as e:
-            logger.exception(f"OpenAIAssistantProvider error for Conv {sb_conversation_id}: {e}")
-            return "Ocurrió un error inesperado con nuestro asistente (Asistente API). Por favor, intenta de nuevo."
+                # 5) poll for completion / handle tool calls
+                start = time.time()
+                while time.time() - start < self.run_timeout_seconds:
+                    run = self.client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+
+                    if run.status == 'completed':
+                        logger.info(f"Run {run.id} completed.")
+                        msgs = self.client.beta.threads.messages.list(thread_id=thread_id, limit=1)
+                        # --- START OF MODIFICATION: Handle No-Response Tool Calls ---
+                        # If the last message is a tool call, there is no text response to the user.
+                        # This happens on successful routing, so we should return None.
+                        last_message = msgs.data[0]
+                        if last_message.role == "assistant" and last_message.content[0].type == "text":
+                            return last_message.content[0].text.value
+                        else:
+                            # This can happen if the last action was a tool call (e.g., routing)
+                            # without a final text response from the assistant.
+                            logger.info(f"Run {run.id} completed after a tool call with no subsequent text response. No message to send.")
+                            return None
+                        # --- END OF MODIFICATION ---
+
+                    if run.status == 'requires_action':
+                        logger.info(f"Run {run.id} requires action.")
+                        tool_outputs = self._execute_tool_calls(run.required_action.submit_tool_outputs.tool_calls, sb_conversation_id)
+                        self.client.beta.threads.runs.submit_tool_outputs(
+                            thread_id=thread_id,
+                            run_id=run.id,
+                            tool_outputs=tool_outputs
+                        )
+
+                    if run.status in ('failed', 'cancelled', 'expired'):
+                        logger.error(f"Run {run.id} ended with {run.status}: {run.last_error}")
+                        return f"Lo siento, la operación falló con estado: {run.status}."
+
+                    time.sleep(self.polling_interval_seconds)
+
+                # timeout
+                logger.error(f"Run {run.id} timed out after {self.run_timeout_seconds}s")
+                return "Lo siento, la operación tardó demasiado en completarse."
+
+            except Exception as e:
+                logger.exception(f"Error in OpenAIAssistantProvider for Conv {sb_conversation_id}: {e}")
+                return "Ocurrió un error inesperado con nuestro asistente. Por favor, intenta de nuevo."
 
     def _execute_tool_calls(self, tool_calls: List[Any], sb_conversation_id: str) -> List[Dict[str, str]]:
         tool_outputs = []
         for tc in tool_calls:
-            fn_name = tc.function.name
+            fn = tc.function.name
             try:
                 args = json.loads(tc.function.arguments)
             except json.JSONDecodeError:
-                logger.error(f"Failed to decode JSON arguments for tool {fn_name}: {tc.function.arguments}")
-                args = {} # Default to empty dict if args are invalid
-            
-            logger.info(f"Assistants API requested tool: {fn_name} with args: {args} for Conv {sb_conversation_id}")
-            
-            output = {}
+                logger.error(f"Invalid JSON for {fn}: {tc.function.arguments}")
+                args = {}
+
+            logger.info(f"Tool requested: {fn} args={args} for Conv {sb_conversation_id}")
+            output: Any = {}
+
             try:
-                if fn_name == "find_products":
+                if fn == "find_products":
+                    # ... existing logic ...
                     query, city_arg = args.get("query"), args.get("city")
                     if city_arg:
                         conversation_location.set_conversation_city(sb_conversation_id, city_arg)
@@ -187,47 +208,61 @@ class OpenAIAssistantProvider:
                         if not warehouses:
                             output = {"status": "city_not_served", "city": city_arg}
                         else:
-                            search_res = product_service.find_products(query=query, warehouse_names=warehouses)
-                            if not search_res or not (search_res.get("products_grouped") or search_res.get("product_details")):
+                            res = product_service.find_products(query=query, warehouse_names=warehouses)
+                            if not res or not (res.get("products_grouped") or res.get("product_details")):
                                 output = {"status": "not_found_in_city", "city": city_arg}
                             else:
-                                output = search_res
+                                output = res
                     else:
                         output = product_service.find_products(query=query, warehouse_names=None)
-                elif fn_name == "get_available_brands":
+
+                elif fn == "get_available_brands":
                     brands = product_service.get_available_brands_by_category(category=args.get("category", "CELULAR"))
                     output = {"status": "success", "brands": brands} if brands else {"status": "not_found"}
-                elif fn_name == "get_branch_address":
+
+                elif fn == "get_branch_address":
                     output = product_service.get_branch_address(
-                        branch_name=args.get("branchName"), 
+                        branch_name=args.get("branchName"),
                         city=args.get("city")
                     )
-                elif fn_name == "query_accessories":
+
+                elif fn == "query_accessories":
                     warehouses = conversation_location.get_city_warehouses(sb_conversation_id)
-                    result = product_service.query_accessories(
-                        main_product_item_code=args.get("itemCode"), 
-                        city_warehouses=warehouses
-                    )
-                    output = {"status": "success", "accessories_list": result} if result else {"status": "not_found"}
-                elif fn_name == "get_location_details_from_address":
+                    res = product_service.query_accessories(main_product_item_code=args.get("itemCode"), city_warehouses=warehouses)
+                    output = {"status": "success", "accessories_list": res} if res else {"status": "not_found"}
+
+                elif fn == "get_location_details_from_address":
                     output = geolocation_service.get_location_details_from_address(address=args.get("address"))
-                elif fn_name == "save_customer_reservation_details":
-                    saved_keys = [key for key, value in args.items() if conversation_details.store_reservation_detail(sb_conversation_id, key, value)]
+
+                elif fn == "save_customer_reservation_details":
+                    saved = [k for k,v in args.items() if conversation_details.store_reservation_detail(sb_conversation_id, k, v)]
                     if 'city' in args:
                         conversation_location.set_conversation_city(sb_conversation_id, args['city'])
-                    output = {"status": "success", "message": f"OK. Detalles guardados: {', '.join(saved_keys)}."} if saved_keys else {"status": "no_action"}
-                elif fn_name == "send_whatsapp_order_summary_template":
-                     # This tool is a placeholder for a future implementation.
-                     output = {"status": "success", "message": "OK_TEMPLATE_SENT"}
-                else:
-                    output = {"status": "error", "message": f"Herramienta desconocida '{fn_name}'."}
+                    output = {"status": "success", "message": f"OK. Detalles guardados: {', '.join(saved)}."} if saved else {"status": "no_action"}
 
-            except Exception as e:
-                logger.exception(f"Tool execution error for {fn_name}: {e}")
-                output = {"status": "error", "message": f"Error interno al ejecutar {fn_name}: {str(e)}"}
-            
+                elif fn == "send_whatsapp_order_summary_template":
+                    output = {"status": "success", "message": "OK_TEMPLATE_SENT"}
+
+                # --- START OF MODIFICATION: Add Routing Logic ---
+                elif fn == "route_to_sales_department":
+                    support_board_service.route_conversation_to_sales(sb_conversation_id)
+                    output = {"status": "success", "message": "Conversation has been routed to the Sales department."}
+
+                elif fn == "route_to_human_support":
+                    support_board_service.route_conversation_to_support(sb_conversation_id)
+                    output = {"status": "success", "message": "Conversation has been routed to the Support department."}
+                # --- END OF MODIFICATION ---
+
+                else:
+                    output = {"status": "error", "message": f"Herramienta desconocida '{fn}'."}
+
+            except Exception as ex:
+                logger.exception(f"Error executing {fn}: {ex}")
+                output = {"status": "error", "message": f"Error interno en {fn}: {ex}"}
+
             tool_outputs.append({
                 "tool_call_id": tc.id,
-                "output": json.dumps(output, ensure_ascii=False) # Output MUST be a string
+                "output": json.dumps(output, ensure_ascii=False)
             })
+
         return tool_outputs

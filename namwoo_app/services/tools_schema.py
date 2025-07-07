@@ -131,5 +131,35 @@ tools_schema: List[Dict[str, Any]] = [
                 "required": ["nearby_stores"]
             }
         }
+    },
+    # --- START OF MODIFICATION ---
+    {
+        "type": "function",
+        "function": {
+            "name": "route_to_sales_department",
+            "description": "Use this function ONLY after the reservation is fully confirmed and you have said the final closing message. This transfers the conversation to a human sales agent to handle payment and finalizes your involvement.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {"type": "string", "description": "The ID of the current conversation to be transferred."}
+                },
+                "required": ["conversation_id"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "route_to_human_support",
+            "description": "Use this function when you cannot help the user or when they explicitly ask to speak to a human agent. You must ask for their confirmation before calling this function. This transfers the conversation to the support department and finalizes your involvement.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {"type": "string", "description": "The ID of the current conversation to be transferred."}
+                },
+                "required": ["conversation_id"]
+            }
+        }
     }
+    # --- END OF MODIFICATION ---
 ]

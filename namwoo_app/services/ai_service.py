@@ -85,6 +85,29 @@ def process_new_message(
     reservation_context = conversation_details.get_reservation_details(sb_conversation_id)
     conversation_data = support_board_service.get_sb_conversation_data(sb_conversation_id)
 
+    # --- START OF FIX: Automatic Department Routing ---
+    # This block checks if the conversation is unassigned and routes it to the
+    # default department specified in the .env file.
+    if conversation_data:
+        # In Support Board, an unassigned conversation has a `department` value of `null` or `0`.
+        # We check for any falsy value (None, 0, etc.) to be safe.
+        current_department = conversation_data.get("details", {}).get("department")
+        if not current_department:
+            default_dept_id = getattr(Config, "SUPPORT_BOARD_ATENCION_AL_CLIENTE_ID", None)
+            if default_dept_id:
+                try:
+                    dept_id_int = int(default_dept_id)
+                    logger.info(f"Conversation {sb_conversation_id} is unassigned. Routing to default 'Atención al Cliente' department (ID: {dept_id_int}).")
+                    support_board_service.assign_conversation_to_department(
+                        conversation_id=sb_conversation_id,
+                        department_id=dept_id_int
+                    )
+                except (ValueError, TypeError):
+                    logger.error(f"Cannot auto-route conversation {sb_conversation_id}: Configured SUPPORT_BOARD_ATENCION_AL_CLIENTE_ID ('{default_dept_id}') is not a valid integer.")
+            else:
+                logger.warning(f"Cannot auto-route conversation {sb_conversation_id}: SUPPORT_BOARD_ATENCION_AL_CLIENTE_ID is not configured in the environment.")
+    # --- END OF FIX ---
+
     # Delegate the entire processing task to the selected provider
     final_assistant_response = provider.process_message(
         sb_conversation_id=sb_conversation_id,
