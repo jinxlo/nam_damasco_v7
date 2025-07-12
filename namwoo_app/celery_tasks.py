@@ -9,9 +9,12 @@ from sqlalchemy.exc import OperationalError as SQLAlchemyOperationalError
 from celery.exceptions import Ignore, MaxRetriesExceededError, OperationalError as CeleryOperationalError
 
 from .celery_app import celery_app, FlaskTask
-from .services import ai_service, product_service, llm_processing_service
-from .utils import db_utils, product_utils 
-from .models.product import Product      
+# --- START OF MODIFICATION: Corrected Imports ---
+# Import the specific services that this file actually uses.
+from .services import product_service, openai_service, llm_processing_service
+# --- END OF MODIFICATION ---
+from .utils import db_utils, product_utils
+from .models.product import Product
 from .config import Config
 
 logger = logging.getLogger(__name__)
@@ -30,9 +33,9 @@ class DamascoProductDataSnake(BaseModel):
     brand: Optional[str] = None
     line: Optional[str] = None
     item_group_name: Optional[str] = None
-    warehouse_name: str 
+    warehouse_name: str
     branch_name: Optional[str] = None
-    store_address: Optional[str] = None 
+    store_address: Optional[str] = None
 
     @validator('price', 'price_bolivar', pre=True, allow_reuse=True)
     def validate_prices_to_decimal(cls, v: Any) -> Optional[Decimal]:
@@ -97,8 +100,8 @@ def process_products_batch_task(self, products_batch_snake_case: List[Dict[str, 
     # --- STEP 2: FETCH EXISTING DATA ---
     existing_products_map = {}
     try:
-        with db_utils.get_db_session() as session: 
-            if product_ids_for_db_lookup: 
+        with db_utils.get_db_session() as session:
+            if product_ids_for_db_lookup:
                 existing_db_entries = session.query(
                     Product.id,
                     Product.description,
@@ -112,7 +115,7 @@ def process_products_batch_task(self, products_batch_snake_case: List[Dict[str, 
                         "description": entry.description,
                         "llm_summarized_description": entry.llm_summarized_description,
                         "searchable_text_content": entry.searchable_text_content,
-                        "embedding": entry.embedding # This will be a NumPy array or None
+                        "embedding": entry.embedding
                     }
             logger.info(f"Task {task_id}: Fetched existing data for {len(existing_products_map)} of "
                         f"{len(validated_items_for_processing)} validated products using lookup IDs.")
@@ -154,34 +157,28 @@ def process_products_batch_task(self, products_batch_snake_case: List[Dict[str, 
                 continue
 
             embedding_to_use = None
-            generate_new_embedding = False # Changed variable name for clarity
+            generate_new_embedding = False
             
             if not existing_details:
                 logger.info(f"Task {task_id}: Product {lookup_id} is new. Generating embedding.")
                 generate_new_embedding = True
             else:
-                # --- MODIFIED CHECK FOR EMBEDDING to handle NumPy array ambiguity ---
                 existing_embedding_value = existing_details.get("embedding")
-                if existing_embedding_value is None: # Explicitly check for Python None
-                    logger.info(f"Task {task_id}: Product {lookup_id} has no existing embedding (field is NULL). Generating embedding.")
+                if existing_embedding_value is None:
+                    logger.info(f"Task {task_id}: Product {lookup_id} has no existing embedding data. Generating embedding.")
                     generate_new_embedding = True
-                # If existing_embedding_value is not None, it means an embedding array exists.
-                # Now, check if the text content has changed.
                 elif text_to_embed != existing_details.get("searchable_text_content"):
                     logger.info(f"Task {task_id}: Content changed for {lookup_id}. Regenerating embedding.")
-                    # logger.debug(f"Task {task_id}: Old searchable_text_content: '{existing_details.get('searchable_text_content')}'")
-                    # logger.debug(f"Task {task_id}: New text_to_embed: '{text_to_embed}'")
                     generate_new_embedding = True
-            # --- END MODIFIED CHECK ---
             
             if generate_new_embedding:
-                embedding_to_use = ai_service.generate_product_embedding(text_to_embed)
-                if embedding_to_use is None: 
+                # --- MODIFIED: Calling the correct service for embeddings ---
+                embedding_to_use = openai_service.generate_product_embedding(text_to_embed)
+                if embedding_to_use is None:
                     logger.error(f"Task {task_id}: Failed to generate new embedding for {lookup_id}. Skipping item.")
                     continue 
-            else: 
-                # This else means: existing_details is not None, AND existing_embedding_value was not None, AND text_to_embed matched.
-                embedding_to_use = existing_details["embedding"] 
+            else:
+                embedding_to_use = existing_details["embedding"]
                 logger.info(f"Task {task_id}: Reusing existing embedding for product {lookup_id}.")
 
             db_ready_product_data_list.append({
@@ -215,9 +212,9 @@ def process_products_batch_task(self, products_batch_snake_case: List[Dict[str, 
         return {"status": "success_nothing_to_write", "processed_count": 0}
 
     try:
-        with db_utils.get_db_session() as session: 
+        with db_utils.get_db_session() as session:
             product_service.upsert_products_batch(session, db_ready_product_data_list)
-            session.commit() 
+            session.commit()
             logger.info(f"Task {task_id}: Successfully upserted and COMMITTED {len(db_ready_product_data_list)} products.")
             return {"status": "success", "processed_count": len(db_ready_product_data_list)}
     except (SQLAlchemyOperationalError, CeleryOperationalError) as e_db_op:
